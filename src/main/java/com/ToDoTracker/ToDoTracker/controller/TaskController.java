@@ -35,7 +35,7 @@ public class TaskController {
     }
 
     @PatchMapping("/{id}/status")
-    public ResponseEntity<Task> updatePrice(@PathVariable Long id, @RequestBody String newStatus) {
+    public ResponseEntity<Task> updateStatus(@PathVariable Long id, @RequestBody String newStatus) {
         Task existing = tasksDB.get(id);
         if (existing == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
@@ -47,7 +47,7 @@ public class TaskController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Task> updatePrice(@PathVariable Long id) {
+    public ResponseEntity<Task> deleteTask(@PathVariable Long id) {
         Task existing = tasksDB.remove(id);
         if (existing == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
